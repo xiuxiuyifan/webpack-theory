@@ -1,1 +1,1 @@
-setTimeout((function(){console.log(200)}));
+!function(){"use strict";console.log((function(){return React.createElement("div",null,"jsx-demo")}))}();
