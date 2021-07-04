@@ -8,7 +8,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.[tj]sx?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
@@ -19,7 +19,8 @@ module.exports = {
                 {
                   runtime: 'classic'  //使用经典版
                 }
-              ]
+              ], 
+              ['@babel/preset-typescript']
             ]
           }
         }
