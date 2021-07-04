@@ -14,20 +14,11 @@ console.log(12342423);
       code: function(require, module, exports) {
         "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var str = "body{\r\n  color: rebeccapurple;\r\n}";
-
 if (document) {
   var style = document.createElement('style');
-  style.innerHTML = str;
+  style.innerHTML = "body{\r\n  color: red;\r\n}";
   document.head.appendChild(style);
 }
-
-var _default = str;
-exports["default"] = _default;
       } 
     }];
 var modules = {};
