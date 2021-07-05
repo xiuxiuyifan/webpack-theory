@@ -71,9 +71,9 @@ module.exports = {
           {
             loader: "less-loader",
             options: {
-              lessOptions: {
-                strictMath: true,
-              },
+              additionalData: `
+                @import './_var.less';
+              `
             },
           },
         ],
