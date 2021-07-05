@@ -9,7 +9,7 @@ import "@/style.scss";
 import '@/style.less';
 
 
-import vars from './scss-export.scss';
+import vars from './_var.less';
 
 console.log(vars)
 
