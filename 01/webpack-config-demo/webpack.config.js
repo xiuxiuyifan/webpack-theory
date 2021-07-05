@@ -39,7 +39,17 @@ module.exports = {
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              additionalData: `
+              @import '@/var.scss';
+              `,
+              sassOptions: {
+                includePaths: [__dirname]  //基于当前目录
+              },
+            },
+          },
         ],
       },
     ]
