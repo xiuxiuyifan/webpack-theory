@@ -32,6 +32,8 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-webpack-plugin": "^2.5.4",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",

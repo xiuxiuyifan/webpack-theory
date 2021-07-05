@@ -6,6 +6,9 @@ import xxx from './tsx-demo.tsx'
 
 import "@/style.scss";
 
+import '@/style.less';
+
+
 import vars from './scss-export.scss';
 
 console.log(vars)
