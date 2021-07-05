@@ -1,6 +1,6 @@
 import JsxDemo from '@/jsx-demo.jsx'
 
-import aaa from './test.tsx'
+import aaa from '@/test.tsx'
 
 import xxx from './tsx-demo.tsx'
 
