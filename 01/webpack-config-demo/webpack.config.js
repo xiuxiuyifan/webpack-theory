@@ -21,6 +21,9 @@ const cssLoaders = (...loaders) => [
 ]
 module.exports = {
   mode,
+  output: {
+    filename: '[name].[contenthash].js'
+  },
   plugins: [
     new ESLintPlugin({
       extensions: ['.js', '.jsx', '.ts', '.tsx']  //不加就不会去检测.jsx文件了
