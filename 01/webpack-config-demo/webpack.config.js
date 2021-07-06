@@ -1,6 +1,20 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path')
 
+const cssLoaders = (...loaders) => [
+  // Creates `style` nodes from JS strings
+  "style-loader",
+  // Translates CSS into CommonJS
+  {
+    loader: 'css-loader',
+    options: {
+      modules: {
+        compileType: 'icss',
+      },
+    },
+  },
+  ...loaders
+]
 module.exports = {
   mode: "production",
   plugins: [new ESLintPlugin({
@@ -33,79 +47,39 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                compileType: 'icss',
-              },
-            },
-          },
-          // Compiles Sass to CSS
-          {
-            loader: "sass-loader",
-            options: {
-              additionalData: `
+        use: cssLoaders({
+          loader: "sass-loader",
+          options: {
+            additionalData: `
               @import '@/var.scss';
               `,
-              sassOptions: {
-                includePaths: [__dirname]  //基于当前目录
-              },
+            sassOptions: {
+              includePaths: [__dirname]  //基于当前目录
             },
           },
-        ],
+        })
       },
       {
         test: /\.less$/i,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                compileType: 'icss',
-              },
-            },
-          },
-          {
-            loader: "less-loader",
-            options: {
-              additionalData: `
+        use: cssLoaders({
+          loader: "less-loader",
+          options: {
+            additionalData: `
                 @import './_var.less';
               `
-            },
-          }
-        ],
+          },
+        })
       },
       {
         test: /\.styl$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                compileType: 'icss',
-              },
-            }
-          },
-          {
-            loader: "stylus-loader",
-            options: {
-              stylusOptions: {
-                import: [path.resolve(__dirname, "src/_var.styl")]
-              }
+        use: cssLoaders({
+          loader: "stylus-loader",
+          options: {
+            stylusOptions: {
+              import: [path.resolve(__dirname, "src/_var.styl")]
             }
           }
-        ]
+        })
       }
     ]
   }
