@@ -21,6 +21,10 @@ const cssLoaders = (...loaders) => [
 ]
 module.exports = {
   mode,
+  entry: {
+    main: './src/index.js',
+    admin: './src/admin.js'
+  },
   output: {
     filename: '[name].[contenthash].js'
   },
@@ -31,7 +35,14 @@ module.exports = {
     mode === 'production' && new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'admin.html',
+      chunks: ['admin']
+    })
   ].filter(Boolean),
   optimization: {
     runtimeChunk: 'single',  //运行时文件单独打包

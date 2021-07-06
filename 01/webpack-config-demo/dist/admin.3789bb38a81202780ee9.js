@@ -1,0 +1,1 @@
+(self.webpackChunkwebpack_config_demo=self.webpackChunkwebpack_config_demo||[]).push([[328],{454:function(){console.log("admin")}},function(c){"use strict";c(c.s=454)}]);
