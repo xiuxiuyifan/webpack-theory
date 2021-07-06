@@ -12,6 +12,7 @@ import '@/style.styl';
 
 import vars from './_var.styl';
 
+import React from 'react'
 console.log(vars)
 
 console.log(aaa)
