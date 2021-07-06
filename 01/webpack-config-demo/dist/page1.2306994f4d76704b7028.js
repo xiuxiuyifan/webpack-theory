@@ -1,0 +1,1 @@
+(self.webpackChunkwebpack_config_demo=self.webpackChunkwebpack_config_demo||[]).push([[484],{767:function(){console.log("page1")}},function(e){"use strict";e(e.s=767)}]);

@@ -2,8 +2,26 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const fs = require('fs')
+
+const pagesDir = './src/pages/'
 
 const mode = 'production'
+let entry = {}
+let outputHtml = []
+
+var pages = fs.readdirSync(path.resolve(__dirname, pagesDir))
+pages.forEach((item)=>{
+  let name = item.replace('.js', '')
+  entry[name] = `${pagesDir}${item}`
+  outputHtml.push(new HtmlWebpackPlugin({
+    filename: `${name}.html`,
+    chunks: [name]
+  }))
+})
+console.log(entry)
+console.log(outputHtml)
+
 
 const cssLoaders = (...loaders) => [
   // Creates `style` nodes from JS strings
@@ -21,10 +39,7 @@ const cssLoaders = (...loaders) => [
 ]
 module.exports = {
   mode,
-  entry: {
-    main: './src/index.js',
-    admin: './src/admin.js'
-  },
+  entry: entry,
   output: {
     filename: '[name].[contenthash].js'
   },
@@ -35,14 +50,7 @@ module.exports = {
     mode === 'production' && new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'admin.html',
-      chunks: ['admin']
-    })
+    ...outputHtml
   ].filter(Boolean),
   optimization: {
     runtimeChunk: 'single',  //运行时文件单独打包

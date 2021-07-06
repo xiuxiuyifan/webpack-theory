@@ -13,6 +13,9 @@ import '@/style.styl';
 import vars from './_var.styl';
 
 import React from 'react'
+import './common.js'
+
+console.log(React)
 console.log(vars)
 
 console.log(aaa)
