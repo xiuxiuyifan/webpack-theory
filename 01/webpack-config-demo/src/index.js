@@ -8,8 +8,9 @@ import "@/style.scss";
 
 import '@/style.less';
 
+import '@/style.styl';
 
-import vars from './_var.less';
+import vars from './_var.styl';
 
 console.log(vars)
 

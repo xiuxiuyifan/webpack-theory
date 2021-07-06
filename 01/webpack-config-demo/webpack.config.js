@@ -80,9 +80,33 @@ module.exports = {
                 @import './_var.less';
               `
             },
-          },
+          }
         ],
       },
+      {
+        test: /\.styl$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                compileType: 'icss',
+              },
+            }
+          },
+          {
+            loader: "stylus-loader",
+            options: {
+              stylusOptions: {
+                import: [path.resolve(__dirname, "src/_var.styl")]
+              }
+            }
+          }
+        ]
+      }
     ]
   }
 }
