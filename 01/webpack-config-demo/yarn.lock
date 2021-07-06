@@ -2880,6 +2880,13 @@ mimic-fn@^2.1.0:
   resolved "https://registry.nlark.com/mimic-fn/download/mimic-fn-2.1.0.tgz"
   integrity sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs=
 
+mini-css-extract-plugin@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.nlark.com/mini-css-extract-plugin/download/mini-css-extract-plugin-2.1.0.tgz?cache=0&sync_timestamp=1625489248109&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmini-css-extract-plugin%2Fdownload%2Fmini-css-extract-plugin-2.1.0.tgz#4aa6558b527ad4c168fee4a20b6092ebe9f98309"
+  integrity sha1-SqZVi1J61MFo/uSiC2CS6+n5gwk=
+  dependencies:
+    schema-utils "^3.0.0"
+
 minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.nlark.com/minimatch/download/minimatch-3.0.4.tgz"
